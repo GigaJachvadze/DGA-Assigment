@@ -1,0 +1,15 @@
+<div style="border: 2px solid black; border-bottom: 0px; width: 100%; box-sizing: border-box; display: flex; justify-content: center; align-items: center; font-family: Arial, Helvetica, sans-serif;">
+    <span style="font-size: 64px; font-weight: 700;">{{calendar.header}}</span>
+</div>
+<table style="border-collapse: collapse; width: 100%; font-family: Arial, Helvetica, sans-serif;">
+    <tr>
+        <th *ngFor="let day of weekDays" style="border: 2px solid black; text-align: center;">
+            {{day}}
+        </th>
+    </tr>
+    <tr *ngFor="let week of calendar.weeks">
+        <td *ngFor="let day of week.days" [ngStyle]="{'background-color': day.color}" style="border: 2px solid black; text-align: right; width: 100px; height: 100px; vertical-align: top; padding: 5px;">
+            <span [ngStyle]="{'opacity': !day.thisMonth? '0.5' : '1'}">{{day.day}}</span>
+        </td>
+    </tr>
+</table>
